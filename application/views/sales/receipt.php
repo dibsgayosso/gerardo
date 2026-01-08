@@ -10,6 +10,8 @@ if (isset($standalone) && $standalone) {
 
 <style>
 @page {
+	size: 5.5in 8.5in;
+	margin: 0.5in;
 }
 </style>
 
@@ -241,6 +243,9 @@ if (!(isset($standalone) && $standalone)) {
                 <?php } ?>
             <?php } ?>
             <li class="company-title" style="font-size: 3em; font-weight: bold;"><?php echo H($company); ?></li>
+			<?php if (isset($customer) && !$this->config->item('remove_customer_name_from_receipt')) { ?>
+				<li class="receipt-customer-name"><strong><?php echo lang('common_customer', '', array(), TRUE); ?>:</strong> <?php echo H($customer); ?></li>
+			<?php } ?>
         </ul>
     </div>
 </div>
